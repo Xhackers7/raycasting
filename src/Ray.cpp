@@ -9,14 +9,14 @@ Ray::Ray(float x, float y)
 {
   origin = sf::Vector2f(x, y);
   dir = sf::Vector2f(1, 0);
-  scale = 80;
+  scale = 300;
 }
 
 Ray::Ray()
 {
   origin = sf::Vector2f(20, 20);
   dir = sf::Vector2f(1, 0);
-  scale = 80;
+  scale = 300;
 }
 
 Ray::~Ray() {
@@ -63,6 +63,8 @@ void Ray ::draw(sf::RenderTarget &target, sf::RenderStates states) const
           sf::Vertex(p1),
           sf::Vertex(p2)
       };
+  line[0].color = sf::Color(255,255,255, 80);
+  line[1].color = sf::Color(255, 255, 255, 80);
   target.draw(line, 2, sf::Lines);
   utils::transform(p1.x, p1.y, -origin);
   utils::transform(p2.x, p2.y, -origin);

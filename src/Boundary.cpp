@@ -1,14 +1,16 @@
 #include "Boundary.hpp"
 #include <SFML/Graphics/Vertex.hpp>
 
-Boundary::Boundary(sf::Vector2f b1, sf::Vector2f b2)
+Boundary::Boundary(sf::Vector2f b1, sf::Vector2f b2, sf::Color color)
 {
   p1 = b1;
   p2 = b2;
+  bg = color;
 }
 
 Boundary::Boundary()
 {
+  bg = sf::Color::White;
 }
 
 Boundary::~Boundary()
@@ -34,6 +36,11 @@ void Boundary ::setP2(sf::Vector2f p)
   p2 = p;
 }
 
+void Boundary ::setColor(sf::Color color)
+{
+  bg = color;
+}
+
 void Boundary ::draw(sf::RenderTarget &target, sf::RenderStates state) const
 {
   sf::Vertex line[] =
@@ -41,6 +48,9 @@ void Boundary ::draw(sf::RenderTarget &target, sf::RenderStates state) const
           sf::Vertex(p1),
           sf::Vertex(p2)
       };
+
+  line[0].color = bg;
+  line[1].color = bg;
 
   target.draw(line, 2, sf::Lines);
 }

@@ -1,5 +1,7 @@
 #include "Utilities.hpp"
 #include <cmath>
+#include <ctime>
+
 
   float utils:: length(sf::Vector2f vector)
   {
@@ -70,4 +72,14 @@ float utils ::degreeToRadians(float degree)
 float utils ::dist(sf::Vector2f p1, sf::Vector2f p2)
 {
   return sqrt(((p2.x - p1.x)*(p2.x - p1.x))+((p2.y-p1.y)*(p2.y-p1.y)));
+}
+
+int utils ::time()
+{
+  return std::time(0);
+}
+
+int utils ::random(int max)
+{
+  return rand()%max;
 }

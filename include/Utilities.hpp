@@ -12,5 +12,7 @@ namespace utils
   sf::Vector2f vectorFromAngle(float angle);
   float degreeToRadians(float degree);
   float dist(sf::Vector2f p1, sf::Vector2f p2);
+  int random(int max);
+  int time();
   
 }
