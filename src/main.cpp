@@ -1,7 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
-#include <SFML/Graphics/CircleShape.hpp>
 #include <memory>
 
 #include "Utilities.hpp"
@@ -25,7 +24,6 @@ Boundary walls[12];
 
 bool drawWalls=false;
 
-sf::CircleShape shape(10.f);
 int main()
 {
 
@@ -63,7 +61,7 @@ int main()
             direction.y);
         i+=0.25;
     }
-    shape.setOrigin(10, 10);
+   
     auto desktop = sf::VideoMode::getDesktopMode();
     window.setPosition(sf::Vector2i(desktop.width / 2 - window.getSize().x / 2, desktop.height / 2 - window.getSize().y / 2));
 
